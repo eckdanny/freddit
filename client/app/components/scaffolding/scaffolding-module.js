@@ -16,16 +16,25 @@
         abstract: true,
         views: {
           'header@app': {
-            template: 'header'
+            templateUrl: DIR + '/header.html'
           },
           'content@app': {
             template: 'content'
         },
           'footer@app': {
-            template: 'footer'
+            templateUrl: DIR + '/footer.html'
         },
         }
-      });
+      })
+
+      .state('app.view.test', {
+        url: '/test',
+        views: {
+          'content@app': {
+            templateUrl: DIR + '/content.html'
+          }
+        }
+      })
   }
 
 })(window, window.angular)

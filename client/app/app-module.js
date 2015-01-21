@@ -13,7 +13,10 @@
       'clientApp',
       [
         'ui.router',
+        'ui.bootstrap',
+
         'de.scaffolding',
+
         'de.comments',
         'de.login'
       ],
