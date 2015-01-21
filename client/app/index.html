@@ -20,7 +20,7 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div ng-controller="AppController"></div>
+    <div ui-view></div>
 
     <!-- build:js(.) scripts/oldieshim.js -->
     <!--[if lt IE 9]>
@@ -32,12 +32,24 @@
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <!-- App -->
         <script src="app-module.js"></script>
         <script src="app-controller.js"></script>
+
+        <!-- Components -->
+        <script src="components/scaffolding/scaffolding-module.js"></script>
+
+        <!-- Comments -->
+        <script src="comments/comments-module.js"></script>
+
+        <!-- Login -->
+        <script src="login/login-module.js"></script>
+        <script src="login/login-controller.js"></script>
         <!-- endbuild -->
 </body>
 </html>
