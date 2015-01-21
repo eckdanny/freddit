@@ -31,7 +31,7 @@ module.exports = function (grunt) {
     watch: {
       bower: {
         files: ['bower.json'],
-        tasks: ['wiredep']
+        tasks: []
       },
       js: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
@@ -390,7 +390,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
-      'wiredep',
+      // 'wiredep',
       'concurrent:server',
       'autoprefixer',
       'connect:livereload',
@@ -413,7 +413,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
-    'wiredep',
+    // 'wiredep',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
