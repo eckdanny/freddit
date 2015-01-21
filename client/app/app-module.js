@@ -1,4 +1,4 @@
-'use strict';
+(function (window, angular, undefined) { 'use strict';
 
 /**
  * @ngdoc overview
@@ -10,3 +10,5 @@
  */
 angular
   .module('clientApp', []);
+
+})(window, window.angular);
