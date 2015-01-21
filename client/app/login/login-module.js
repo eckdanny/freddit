@@ -1,5 +1,7 @@
 (function (window, angular, undefined) { 'use strict';
 
+  var DIR = 'login';
+
   angular
     .module('de.login', [])
     .config(LoginModuleConfig);
@@ -11,7 +13,9 @@
         url: '/login',
         views: {
           'content@app': {
-            template: 'Login Form Here!'
+            templateUrl: DIR + '/login.html',
+            controller: 'LoginController',
+            controllerAs: 'loginCtrl'
           }
         }
       });

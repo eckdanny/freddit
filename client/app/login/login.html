@@ -1,0 +1,36 @@
+<form
+  name="loginForm"
+  ng-submit="loginCtrl.submit(formData)"
+  novalidate
+>
+  <label
+    for="username"
+    ng-bind="'Username'"
+  ></label>
+  <input
+    type="text"
+    id="username"
+    name="username"
+    ng-model="formData.username"
+    autofocus
+    required
+  >
+
+  <label
+    for="password"
+    ng-bind="'Password'"
+  ></label>
+  <input
+    type="password"
+    id="password"
+    name="password"
+    ng-model="formData.password"
+    required
+  >
+
+  <button
+    type="submit"
+    ng-bind="'Click Me'"
+    ng-disabled="loginForm.$pristine || loginForm.$invalid"
+  ></button>
+</form>
