@@ -17,35 +17,12 @@
         'de.comments',
         'de.login'
       ],
-      configFn
+      clientAppModuleConfig
     );
 
-  function configFn ($stateProvider, $urlRouterProvider) {
-
+  function clientAppModuleConfig ($urlRouterProvider) {
     $urlRouterProvider
-      .otherwise('/');
-
-    $stateProvider
-
-      .state('app', {
-        abstract: true,
-        templateUrl: 'components/scaffolding/main.html'
-      })
-
-      .state('app.view', {
-        abstract: true,
-        views: {
-          'header@app': {
-            template: 'header'
-          },
-          'content@app': {
-            template: 'content'
-        },
-          'footer@app': {
-            template: 'footer'
-        },
-        }
-      });
+      .otherwise('/comments');
   }
 
 })(window, window.angular);

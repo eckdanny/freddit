@@ -1,16 +1,21 @@
 (function () { 'use strict';
 
   angular
-    .module('de.comments', [])
-    .config(CommentsModuleConfig);
+    .module('de.comments',
+      [
+        'de.comments.listView'
+      ]
+    )
+    .config(commentsModuleConfig);
 
-  function CommentsModuleConfig ($stateProvider) {
+  function commentsModuleConfig ($stateProvider) {
     $stateProvider
-      .state('app.view.home', {
-        url: '/',
+      .state('app.view.comments', {
+        url: '/comments',
+        abstract: true,
         views: {
           'content@app': {
-            template: 'override!!!'
+            template: '<div ui-view></div>'
           }
         }
       });

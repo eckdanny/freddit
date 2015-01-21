@@ -4,9 +4,9 @@
 
   angular
     .module('de.login', [])
-    .config(LoginModuleConfig);
+    .config(loginModuleConfig);
 
-  function LoginModuleConfig ($stateProvider) {
+  function loginModuleConfig ($stateProvider) {
 
     $stateProvider
       .state('app.login', {
