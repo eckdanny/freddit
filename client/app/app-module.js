@@ -18,6 +18,7 @@
         'de.scaffolding',
 
         'de.comments',
+        'de.about',
         'de.login'
       ],
       clientAppModuleConfig
