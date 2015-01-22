@@ -1,0 +1,63 @@
+<div class="row" style="margin-bottom: 5px;">
+  <div class="col-xs-2">
+    <div style="text-align: center;">
+      <span
+        class="label label-success"
+        ng-bind="comment.upvotes"
+      ></span>
+      <div
+        ng-bind="comment.upvotes + comment.downvotes"
+        style="
+          font-weight: bold;
+          display: inline-block;
+          font-size: large;
+          width: 40px;
+          position: relative;
+          top: 3px;
+        "
+      ></div>
+      <span
+        class="label label-danger"
+        ng-bind="comment.downvotes"
+      ></span>
+    </div>
+  </div>
+  <div class="col-xs-10">
+    <a
+      title="comment.title"
+      ui-sref="comment.title"
+    >
+      <h4
+        ng-bind="comment.title"
+        style="margin-top: 6px;"
+      ></h4>
+    </a>
+    <p>
+      submitted
+      <time
+        title="Wed Jan 21 17:33:48 2015 UTC"
+        datetime="2015-01-21T17:33:48+00:00"
+      >9 hours ago</time>
+      by
+      <a
+        href="#"
+        ng-bind="comment.author.name"
+      ></a>,
+      2 comments
+    </p>
+    <!--
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3
+          class="panel-title"
+          ng-bind="comment.title"
+        ></h3>
+      </div>
+      <div
+        class="panel-body"
+        ng-bind="comment.body"
+      ></div>
+    </div>
+    -->
+  </div>
+</div>

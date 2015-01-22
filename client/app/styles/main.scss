@@ -1,3 +1,9 @@
+$font-size-base:          12px !default;
+$panel-border-radius: 0;
+$panel-body-padding:          5px !default;
+$panel-heading-padding:       2px 5px !default;
+$grid-gutter-width:         10px !default;
+
 // bower:scss
 // Core variables and mixins
 @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/variables";
@@ -49,7 +55,6 @@
 // Utility classes
 @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/utilities";
 @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities";
-
 // endbower
 
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }

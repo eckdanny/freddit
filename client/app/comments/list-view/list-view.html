@@ -1,5 +1,9 @@
-<div
-  ng-repeat="comment in list.comments"
->
-  <pre ng-bind="comment | json"></pre>
+<div class="container">
+  <div
+    ng-repeat="comment in list.comments"
+  >
+    <de:comment
+      comment="comment"
+    ></de:comment>
+  </div>
 </div>
