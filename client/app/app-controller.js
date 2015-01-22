@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name clientApp.controller:MainCtrl
+ * @name freddit.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the clientApp
+ * Controller of freddit
  */
-angular.module('clientApp')
+angular.module('freddit')
   .controller('AppController', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',

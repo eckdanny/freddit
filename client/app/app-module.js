@@ -2,15 +2,15 @@
 
   /**
    * @ngdoc overview
-   * @name clientApp
+   * @name freddit
    * @description
-   * # clientApp
+   * # freddit
    *
    * Main module of the application.
    */
   angular
     .module(
-      'clientApp',
+      'freddit',
       [
         'ui.router',
         'ui.bootstrap',
@@ -21,10 +21,10 @@
         'de.about',
         'de.login'
       ],
-      clientAppModuleConfig
+      fredditModuleConfig
     );
 
-  function clientAppModuleConfig ($urlRouterProvider) {
+  function fredditModuleConfig ($urlRouterProvider) {
     $urlRouterProvider
       .otherwise('/comments');
   }
