@@ -35,13 +35,13 @@ curl -sL https://rpm.nodesource.com/setup | sudo bash -
 sudo yum install -y gcc-c++ make nodejs
 
 # Configure npm
-npm config set prefix /home/vagrant/npm
-if ! grep -q "\/npm\/bin\"$" /home/vagrant/.bashrc ; then
-  echo 'export PATH="$PATH:$HOME/npm/bin"' | tee -a /home/vagrant/.bashrc
-  source /home/vagrant/.bashrc
-fi
+# npm config set prefix /home/vagrant/npm
+# if ! grep -q "\/npm\/bin\"$" /home/vagrant/.bashrc ; then
+#   echo 'export PATH="$PATH:$HOME/npm/bin"' | tee -a /home/vagrant/.bashrc
+#   source /home/vagrant/.bashrc
+# fi
 
-npm install -g grunt-cli karma bower
+sudo npm install -g grunt-cli karma bower
 
 # # Clone jwt-auth demo
 # if [ ! -d /home/vagrant/jwt-auth ]; then
