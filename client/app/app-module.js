@@ -19,7 +19,8 @@
 
         'de.comments',
         'de.about',
-        'de.login'
+        'de.login',
+        'de.activeUser'
       ],
       fredditModuleConfig
     );
