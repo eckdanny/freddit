@@ -1,0 +1,41 @@
+<div class="container">
+
+  <form
+    name="postForm"
+    ng-submit="post.submit(formData)"
+    novalidate
+  >
+    <label
+      for="title"
+      ng-bind="'Title'"
+    ></label>
+    <input
+      type="text"
+      id="title"
+      name="title"
+      ng-model="formData.title"
+      autofocus
+      required
+    >
+
+    <label
+      for="body"
+      ng-bind="'Message'"
+    ></label>
+    <textarea
+      id="body"
+      name="body"
+      ng-model="formData.body"
+      required
+    ></textarea>
+
+    <button
+      type="submit"
+      class="btn btn-success"
+      ng-bind="'Save'"
+      ng-disabled="postForm.$pristine || postForm.$invalid"
+    ></button>
+  </form>
+
+
+</div>

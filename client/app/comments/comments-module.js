@@ -3,7 +3,8 @@
   angular
     .module('de.comments',
       [
-        'de.comments.listView'
+        'de.comments.listView',
+        'de.comments.createView'
       ]
     )
     .config(commentsModuleConfig);
