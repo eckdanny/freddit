@@ -11,8 +11,46 @@
           views: {
             'content@app': {
               template: 'Heloooo there!',
-              controller: function (ActiveUserService) {
-                debugger;
+              controller: function ($http, ActiveUserService) {
+                // debugger;
+                //
+                // $http
+                //   .get('http://localhost:8080/hello/joe')
+                //   .then(
+                //     function success (res) {
+                //       debugger;
+                //     },
+                //     function error (err) {
+                //       debugger;
+                //     }
+                //   );
+
+                var thePost = {
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: 'Goodbye Cruel World!',
+                  body: 'I am the 2nd post. I was created from the angular app. The request should go from Client => (thru CORS) => API (restify) => es client => elasticsearch.',
+                  created: (new Date()).toISOString(),
+                  tags: ['hello world'],
+                  author: {
+                    displayName: 'Anonymous'
+                  },
+                  comments: []
+                };
+
+                $http
+                  .post(
+                    'http://localhost:8080/posts',
+                    thePost
+                  )
+                  .then(
+                    function success (res) {
+                      debugger;
+                    },
+                    function error (err) {
+                      debugger;
+                    }
+                  );
               }
             }
           }
