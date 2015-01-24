@@ -20,7 +20,8 @@
         'de.comments',
         'de.about',
         'de.login',
-        'de.activeUser'
+        'de.activeUser',
+        'de.search'
       ],
       fredditModuleConfig
     );

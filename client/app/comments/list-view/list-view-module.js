@@ -82,6 +82,50 @@
           id: '2',
           name: 'Mike'
         }
+      },
+      {
+        id: 4,
+        upvotes: 48,
+        downvotes: 13,
+        title: 'Everything is Awesome!!!',
+        tags: [
+          'Harry Potter',
+          'Batman',
+          'magic',
+          'fight'
+        ],
+        body: '' +
+          'If it came down to mortal combat, I\'m pretty sure ' +
+          'that Harry Potter would beat Batman. I mean... he\'s got like mad ' +
+          'magic skills and he can fly (on a broom). Batman doesn\'t know magic ' +
+          'last time I checked. He\'d definitely lose.',
+        created: '2015-01-21T14:36:59.527Z',
+        author: {
+          id: '2',
+          name: 'Mike'
+        }
+      },
+      {
+        id: 5,
+        upvotes: 48,
+        downvotes: 13,
+        title: 'Pairing Issues',
+        tags: [
+          'Harry Potter',
+          'Batman',
+          'magic',
+          'fight'
+        ],
+        body: '' +
+          'If it came down to mortal combat, I\'m pretty sure ' +
+          'that Harry Potter would beat Batman. I mean... he\'s got like mad ' +
+          'magic skills and he can fly (on a broom). Batman doesn\'t know magic ' +
+          'last time I checked. He\'d definitely lose.',
+        created: '2015-01-21T14:36:59.527Z',
+        author: {
+          id: '2',
+          name: 'Mike'
+        }
       }
     ];
   }

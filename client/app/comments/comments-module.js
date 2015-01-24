@@ -4,7 +4,8 @@
     .module('de.comments',
       [
         'de.comments.listView',
-        'de.comments.createView'
+        'de.comments.createView',
+        'de.comments.commentView'
       ]
     )
     .config(commentsModuleConfig);

@@ -1,9 +1,53 @@
 <div class="container">
-  <div
-    ng-repeat="comment in list.comments"
-  >
-    <de:comment
-      comment="comment"
-    ></de:comment>
+  <div class="row">
+    <div class="col-md-8">
+      <div ng-repeat="comment in list.comments">
+        <de:comment
+          comment="comment"
+        ></de:comment>
+      </div>
+      <div ng-repeat="comment in list.comments">
+        <de:comment
+          comment="comment"
+        ></de:comment>
+      </div>
+      <div ng-repeat="comment in list.comments">
+        <de:comment
+          comment="comment"
+        ></de:comment>
+      </div>
+      <div ng-repeat="comment in list.comments">
+        <de:comment
+          comment="comment"
+        ></de:comment>
+      </div>
+      <div ng-repeat="comment in list.comments">
+        <de:comment
+          comment="comment"
+        ></de:comment>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div ui-view="sidebar"></div>
+      <de:search
+        submit="list.search"
+      ></de:search>
+      <!--
+      <h3>Search</h3>
+      <form
+        name="searchForm"
+        novalidate
+      >
+        <input
+          type="text"
+          name="search"
+        >
+      </form>
+      <h3>Filter</h3>
+      <p>alskdfj</p>
+      <h3>Create</h3>
+      <a ui-sref="app.view.comments.create">New Post</a>
+      -->
+    </div>
   </div>
 </div>

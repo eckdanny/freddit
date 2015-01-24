@@ -11,6 +11,10 @@
     angular.extend(self, {
       comments: comments
     });
+
+    self.search = function (query) {
+      console.log('You searched for ', query);
+    };
   }
 
 })(window, window.angular);

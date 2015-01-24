@@ -1,0 +1,15 @@
+<form
+  name="search"
+  novalidate
+  ng-submit="submit()(formData.search)"
+>
+  <input
+    type="text"
+    name="query"
+    ng-model="formData.search"
+  >
+  <button
+    type="submit"
+    ng-bind="'Search'"
+  ></button>
+</form>
