@@ -16,7 +16,20 @@
             controller: 'CommentsListViewController',
             controllerAs: 'list',
             resolve: {
-              comments: mockComments
+              // comments: mockComments
+              comments: function () {
+                return $http
+                  .get('http://localhost:8080/posts')
+                  .then(
+                    function success (res) {
+                      debugger;
+                      return res;
+                    },
+                    function error (err) {
+                      debugger;
+                    }
+                  );
+              }
             }
           }
         }

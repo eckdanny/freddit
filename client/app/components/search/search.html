@@ -3,13 +3,16 @@
   novalidate
   ng-submit="submit()(formData.search)"
 >
-  <input
-    type="text"
-    name="query"
-    ng-model="formData.search"
-  >
-  <button
-    type="submit"
-    ng-bind="'Search'"
-  ></button>
+  <div class="form-group">
+    <input
+      type="text"
+      name="query"
+      ng-model="formData.search"
+      class="form-control"
+    >
+    <button
+      type="submit"
+      ng-bind="'Search'"
+    ></button>
+  </div>
 </form>

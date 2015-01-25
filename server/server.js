@@ -61,6 +61,23 @@ server.post('/posts', function create (req, res, next) {
   // next();
 });
 
+server.get('/posts', function (req, res, next) {
+  es
+    .search({
+      index: 'freddit',
+      type: 'post',
+      body: {
+        query: {
+          match_all: {}
+        }
+      }
+    }, function (err, data) {
+      if (err) { return; }
+      res.send(data.hits.hits);
+      next();
+    });
+});
+
 // server.get('/hello/:name', respond);
 // server.head('/hello/:name', respond);
 
