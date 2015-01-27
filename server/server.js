@@ -44,7 +44,7 @@ server.use(restify.bodyParser({
 server.post('/posts', function create (req, res, next) {
   es.create({
     index: 'freddit', 
-    type: 'posts',
+    type: 'post',
     body: req.body
   }, function (err, data) {
     if (err) {
@@ -57,7 +57,6 @@ server.post('/posts', function create (req, res, next) {
   });
 });
 
-// TODO pluralization of endpoints is a good idea, but the _type's should be singular!
 server.get('/post/:postId', function (req, res, next) {
 
   console.log(req.params.postId);
@@ -65,7 +64,7 @@ server.get('/post/:postId', function (req, res, next) {
   es
     .get({
       index: 'freddit',
-      type: 'posts',
+      type: 'post',
       id: req.params.postId,
       fields: [
         '_timestamp',
@@ -92,7 +91,7 @@ server.get('/posts', function (req, res, next) {
   es
     .search({
       index: 'freddit',
-      type: 'posts',
+      type: 'post',
       body: {
         fields: [
           '_timestamp',
