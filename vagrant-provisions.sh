@@ -48,3 +48,9 @@ sudo npm install -g grunt-cli karma bower
 #   git clone https://github.com/eckdanny/jwt-auth.git /home/vagrant/jwt-auth
 #   cd /home/vagrant/jwt-auth && npm install
 # fi
+
+
+# Marvel Install
+# cd /usr/share/elasticsearch
+# sudo bin/plugin -i elasticsearch/marvel/latest
+# sudo /etc/init.d/elasticsearch restart
