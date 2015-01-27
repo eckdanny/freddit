@@ -14,7 +14,10 @@
         controllerAs: 'cmt',
         templateUrl: DIR + '/comment-view.html',
         resolve: {
-          comment: mockComment
+          comment: function ($stateParams, commentService) {
+            return commentService
+              .one($stateParams.commentId);
+          }
         }
       });
   }

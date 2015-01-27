@@ -11,7 +11,8 @@
       restrict: 'E',
       templateUrl: DIR + '/comment.html',
       scope: {
-        comment: '='
+        comment: '=',
+        onClick: '&'
       },
       link: function (scope, iElem, iAttrs) {
         console.log(scope.comment);

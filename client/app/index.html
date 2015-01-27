@@ -31,6 +31,7 @@
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
+    <script src="bower_components/lodash/lodash.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
@@ -43,13 +44,19 @@
         <script src="app-controller.js"></script>
 
         <!-- Components -->
+        <!-- Scaffolding -->
         <script src="components/scaffolding/scaffolding-module.js"></script>
+        <!-- Environment -->
+        <script src="components/environment/environment-module.js"></script>
+        <script src="components/environment/environment-provider.js"></script>
+        <!-- endcomponents -->
 
         <!-- Comments -->
         <script src="comments/comments-module.js"></script>
         <script src="comments/list-view/list-view-module.js"></script>
         <script src="comments/list-view/list-view-controller.js"></script>
         <script src="comments/components/comment-directive.js"></script>
+        <script src="comments/components/comment-service.js"></script>
         <script src="comments/create-view/create-view-module.js"></script>
         <script src="comments/create-view/create-view-controller.js"></script>
         <script src="comments/comment-view/comment-view-module.js"></script>

@@ -4,8 +4,13 @@
     .module('de.comments.commentView')
     .controller('CommentViewController', CommentViewController);
 
-  function CommentViewController () {
-    // body...
+  function CommentViewController (comment) {
+
+    var self = this;
+
+    angular.extend(self, {
+      comment: comment
+    });
   }
 
 })(window, window.angular);

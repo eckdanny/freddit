@@ -25,29 +25,42 @@
                 //     }
                 //   );
 
-                var thePost = {
-                  upvotes: 0,
-                  downvotes: 0,
-                  title: 'Goodbye Cruel World!',
-                  body: 'I am the 2nd post. I was created from the angular app. The request should go from Client => (thru CORS) => API (restify) => es client => elasticsearch.',
-                  created: (new Date()).toISOString(),
-                  tags: ['hello world'],
-                  author: {
-                    displayName: 'Anonymous'
-                  },
-                  comments: []
-                };
+                // var thePost = {
+                //   upvotes: 0,
+                //   downvotes: 0,
+                //   title: 'Goodbye Cruel World!',
+                //   body: 'I am the 2nd post. I was created from the angular app. The request should go from Client => (thru CORS) => API (restify) => es client => elasticsearch.',
+                //   created: (new Date()).toISOString(),
+                //   tags: ['hello world'],
+                //   author: {
+                //     displayName: 'Anonymous'
+                //   },
+                //   comments: []
+                // };
+
+                // $http
+                //   .post(
+                //     'http://localhost:8080/posts',
+                //     thePost
+                //   )
+                //   .then(
+                //     function success (res) {
+                //       debugger;
+                //     },
+                //     function error (err) {
+                //       debugger;
+                //     }
+                //   );
 
                 $http
-                  .post(
-                    'http://localhost:8080/posts',
-                    thePost
+                  .get(
+                    'http://localhost:8080/posts'
                   )
                   .then(
                     function success (res) {
                       debugger;
                     },
-                    function error (err) {
+                    function error (res) {
                       debugger;
                     }
                   );

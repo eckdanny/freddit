@@ -24,9 +24,10 @@
   </div>
   <div class="col-xs-10">
     <a
-      title="comment.title"
-      ui-sref="app.view.comments.one({commentId: comment.id})"
+      ng-attr-title="{{comment.title}}"
+      ng-click="onClick()(comment)"
     >
+      <!-- ui-sref="app.view.comments.one({commentId: comment.id})" -->
       <h4
         ng-bind="comment.title"
         style="margin-top: 6px;"
@@ -41,7 +42,7 @@
       by
       <a
         href="#"
-        ng-bind="comment.author.name"
+        ng-bind="comment.author.displayName"
       ></a>,
       2 comments
     </p>

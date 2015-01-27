@@ -14,10 +14,7 @@
           '': {
             templateUrl: DIR + '/create-view.html',
             controller: 'CommentCreateViewController',
-            controllerAs: 'create',
-            resolve: {
-              // comments: mockComments
-            }
+            controllerAs: 'create'
           }
         }
       });

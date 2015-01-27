@@ -16,20 +16,35 @@
             controller: 'CommentsListViewController',
             controllerAs: 'list',
             resolve: {
-              // comments: mockComments
-              comments: function () {
-                return $http
-                  .get('http://localhost:8080/posts')
+              // comments: mockComments,
+              comments: function (commentService) {
+                return commentService
+                  .fetch()
                   .then(
-                    function success (res) {
-                      debugger;
-                      return res;
+                    function success (posts) {
+                      return posts;
                     },
                     function error (err) {
                       debugger;
                     }
                   );
               }
+              // comments2: function (commentService) {
+              //   debugger;
+              // }
+              // comments: function () {
+              //   return $http
+              //     .get('http://localhost:8080/posts')
+              //     .then(
+              //       function success (res) {
+              //         debugger;
+              //         return res;
+              //       },
+              //       function error (err) {
+              //         debugger;
+              //       }
+              //     );
+              // }
             }
           }
         }

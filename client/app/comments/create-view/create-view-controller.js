@@ -17,7 +17,7 @@
     //   comments: []
     // };
 
-  function CommentCreateViewController (author, $scope, $http) {
+  function CommentCreateViewController (author, $scope, commentService) {
 
     var self = this;
 
@@ -32,20 +32,32 @@
     });
 
     self.onSubmit = function (formData) {
-      return $http
-        .post(
-          'http://localhost:8080/posts',
-          formData
-        )
+
+      return commentService
+        .create(formData)
         .then(
           function success (res) {
-            console.log(res);
-            return res;
+            debugger;
           },
           function error (err) {
             debugger;
           }
         );
+
+      // return $http
+      //   .post(
+      //     'http://localhost:8080/posts',
+      //     formData
+      //   )
+      //   .then(
+      //     function success (res) {
+      //       console.log(res);
+      //       return res;
+      //     },
+      //     function error (err) {
+      //       debugger;
+      //     }
+      //   );
     };
   }
 

@@ -16,15 +16,16 @@
         'ui.bootstrap',
 
         'de.scaffolding',
+        'de.environment',
 
         'de.comments',
         'de.about',
         'de.login',
         'de.activeUser',
         'de.search'
-      ],
-      fredditModuleConfig
-    );
+      ]
+    )
+    .config(fredditModuleConfig);
 
   function fredditModuleConfig ($urlRouterProvider) {
     $urlRouterProvider
