@@ -34,7 +34,7 @@
             templateUrl: DIR + '/content.html'
           }
         }
-      })
+      });
   }
 
-})(window, window.angular)
+})(window, window.angular);
