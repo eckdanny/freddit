@@ -1,6 +1,3 @@
-// Karma configuration
-// http://karma-runner.github.io/0.12/config/configuration-file.html
-// Generated on 2015-01-21 using
 // generator-karma 0.8.3
 
 module.exports = function(config) {
@@ -11,18 +8,35 @@ module.exports = function(config) {
     autoWatch: true,
 
     // base path, that will be used to resolve files and exclude
-    basePath: '../',
+    basePath: '.',
 
     // testing framework to use (jasmine/mocha/qunit/...)
     frameworks: ['jasmine'],
 
     // list of files / patterns to load in the browser
     files: [
+      'bower_components/lodash/dist/lodash.js',
       'bower_components/angular/angular.js',
+      'bower_components/angular-sanitize/angular-sanitize.js',
       'bower_components/angular-mocks/angular-mocks.js',
-      'app/scripts/**/*.js',
+      'bower_components/angular-ui-router/release/angular-ui-router.js',
+      'bower_components/angular-bootstrap/ui-bootstrap.js',
+      'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+      'bower_components/elasticsearch/elasticsearch.angular.js',
+
+      'app/app-module.js',
+      'app/app-controller.js',
+
+      'app/**/*-module.js',
+      'app/**/*-controller.js',
+      'app/**/*-directive.js',
+      'app/**/*-factory.js',
+      'app/**/*-filter.js',
+      'app/**/*-provider.js',
+      'app/**/*-service.js',
+
+      'app/**/*_test.js',
       'test/mock/**/*.js',
-      'test/spec/**/*.js'
     ],
 
     // list of files / patterns to exclude
@@ -46,7 +60,9 @@ module.exports = function(config) {
     // Which plugins to enable
     plugins: [
       'karma-phantomjs-launcher',
-      'karma-jasmine'
+      'karma-chrome-launcher',
+      'karma-jasmine',
+      'karma-coverage'
     ],
 
     // Continuous Integration mode
@@ -65,5 +81,23 @@ module.exports = function(config) {
     // },
     // URL root prevent conflicts with the site root
     // urlRoot: '_karma_'
+
+    // coverage reporter generates the coverage
+    // reporters: ['progress'], // <== When debugging...
+    reporters: ['progress', 'coverage'],
+
+    preprocessors: {
+      // source files, that you wanna generate coverage for
+      // do not include tests or libraries
+      // (these files will be instrumented by Istanbul)
+      'app/**/!(*_test).js' : ['coverage']
+    },
+
+    // optionally, configure the reporter
+    coverageReporter: {
+      type : 'html',
+      dir : 'coverage/'
+    }
+
   });
 };
