@@ -1,10 +1,10 @@
 (function (window, angular, _, undefined) { 'use strict';
 
   angular
-    .module('de.comments')
-    .service('commentService', commentService);
+    .module('de.posts')
+    .service('PostService', PostService);
 
-  function commentService ($http, environment) {
+  function PostService ($http, environment) {
 
     this.fetch = function (queryObject) {
       return $http

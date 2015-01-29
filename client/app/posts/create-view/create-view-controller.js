@@ -1,23 +1,10 @@
 (function (window, angular, undefined) { 'use strict';
 
   angular
-    .module('de.comments.createView')
-    .controller('CommentCreateViewController', CommentCreateViewController);
+    .module('de.posts.createView')
+    .controller('PostCreateViewController', PostCreateViewController);
 
-    // {
-    //   upvotes: 0,
-    //   downvotes: 0,
-    //   title: 'Goodbye Cruel World!',
-    //   body: 'I am the 2nd post. I was created from the angular app. The request should go from Client => (thru CORS) => API (restify) => es client => elasticsearch.',
-    //   created: (new Date()).toISOString(),
-    //   tags: ['hello world'],
-    //   author: {
-    //     displayName: 'Anonymous'
-    //   },
-    //   comments: []
-    // };
-
-  function CommentCreateViewController (author, $scope, commentService) {
+  function PostCreateViewController (author, $scope, PostService) {
 
     var self = this;
 
@@ -33,7 +20,7 @@
 
     self.onSubmit = function (formData) {
 
-      return commentService
+      return PostService
         .create(formData)
         .then(
           function success (res) {

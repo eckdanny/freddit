@@ -3,10 +3,10 @@
     <div style="text-align: center;">
       <span
         class="label label-success"
-        ng-bind="comment.upvotes"
+        ng-bind="post.upvotes"
       ></span>
       <div
-        ng-bind="comment.upvotes + comment.downvotes"
+        ng-bind="post.upvotes + post.downvotes"
         style="
           font-weight: bold;
           display: inline-block;
@@ -18,18 +18,17 @@
       ></div>
       <span
         class="label label-danger"
-        ng-bind="comment.downvotes"
+        ng-bind="post.downvotes"
       ></span>
     </div>
   </div>
   <div class="col-xs-10">
     <a
-      ng-attr-title="{{comment.title}}"
-      ng-click="onClick()(comment)"
+      ng-attr-title="{{post.title}}"
+      ng-click="onClick()(post)"
     >
-      <!-- ui-sref="app.view.comments.one({commentId: comment.id})" -->
       <h4
-        ng-bind="comment.title"
+        ng-bind="post.title"
         style="margin-top: 6px;"
       ></h4>
     </a>
@@ -42,23 +41,9 @@
       by
       <a
         href="#"
-        ng-bind="comment.author.displayName"
+        ng-bind="post.author.displayName"
       ></a>,
       2 comments
     </p>
-    <!--
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3
-          class="panel-title"
-          ng-bind="comment.title"
-        ></h3>
-      </div>
-      <div
-        class="panel-body"
-        ng-bind="comment.body"
-      ></div>
-    </div>
-    -->
   </div>
 </div>

@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8">
-      <div ng-repeat="comment in list.comments">
-        <de:comment
-          comment="comment"
+      <div ng-repeat="post in list.posts">
+        <de:post
+          post="post"
           on-click="list.interact"
-        ></de:comment>
+        ></de:post>
       </div>
     </div>
     <div class="col-md-4">
@@ -14,7 +14,7 @@
         submit="list.search"
       ></de:search>
       <a
-        ui-sref="app.view.comments.create"
+        ui-sref="app.view.posts.create"
         class="btn btn-block btn-info"
         ng-bind="'Submit new Post'"
       ></a>

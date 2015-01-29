@@ -1,0 +1,19 @@
+{
+	"folders":
+	[
+		{
+      "folder_exclude_patterns": [
+        "node_modules",
+        "bower_components",
+        ".tmp",
+        ".sass-cache",
+        "dist",
+        "coverage",
+        "complexity",
+        ".vagrant"
+      ],
+			"follow_symlinks": true,
+			"path": "."
+		}
+	]
+}

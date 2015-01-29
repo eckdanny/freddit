@@ -1,0 +1,29 @@
+<!--
+<de:post
+  post="cmt.post"
+></de:post>
+-->
+<div class="container">
+  <pre ng-bind="one.post | json"></pre>
+  <h3
+    ng-bind="one.post.title"
+  ></h3>
+  <p class="small">
+    submitted
+    <time
+      title="Wed Jan 21 17:33:48 2015 UTC"
+      datetime="2015-01-21T17:33:48+00:00"
+    >9 hours ago</time>
+    by
+    <a
+      href="#"
+      ng-bind="one.post.author.displayName"
+    ></a>
+    <div class="panel panel-default">
+      <div
+        class="panel-body"
+        ng-bind="one.post.body"
+      ></div>
+    </div>
+  </p>
+</div>

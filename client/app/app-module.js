@@ -18,7 +18,7 @@
         'de.scaffolding',
         'de.environment',
 
-        'de.comments',
+        'de.posts',
         'de.about',
         'de.login',
         'de.activeUser',
@@ -29,7 +29,33 @@
 
   function fredditModuleConfig ($urlRouterProvider) {
     $urlRouterProvider
-      .otherwise('/comments');
+      .otherwise('/posts');
+  }
+
+
+  function uiRouterErrorHandler ($rootScope) {
+
+    // Handle StateChange Errors
+    $rootScope.$on('$stateNotFound', stateNotFound);
+    $rootScope.$on('$stateChangeError', stateChangeError);
+
+    function stateNotFound (event, unfoundState, fromState, fromParams) { /* jshint unused: vars */
+      console.log('' +
+        'Oops! You found a dead link. ' +
+        'The requested resource may have been removed from the application.'
+      );
+      event.preventDefault();
+    }
+
+    function stateChangeError (event, toState, toParams, fromState, fromParams, error) {
+
+      if (404 === error.status) {
+        console.log(error.data);
+      } else {
+        console.log(error.message);
+      }
+
+    }
   }
 
 })(window, window.angular);

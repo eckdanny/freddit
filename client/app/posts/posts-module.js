@@ -1,21 +1,21 @@
 (function () { 'use strict';
 
   angular
-    .module('de.comments',
+    .module('de.posts',
       [
         'de.environment',
 
-        'de.comments.listView',
-        'de.comments.createView',
-        'de.comments.commentView'
+        'de.posts.listView',
+        'de.posts.createView',
+        'de.posts.postView'
       ]
     )
     .config(commentsModuleConfig);
 
   function commentsModuleConfig ($stateProvider) {
     $stateProvider
-      .state('app.view.comments', {
-        url: '/comments',
+      .state('app.view.posts', {
+        url: '/posts',
         abstract: true,
         views: {
           'content@app': {
