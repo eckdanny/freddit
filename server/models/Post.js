@@ -5,6 +5,11 @@ var _ = require('lodash');
 
 var es;
 
+var defaults = {
+  index: 'freddit',
+  type: 'post'
+};
+
 function Post () {}
 
 //
@@ -13,10 +18,6 @@ function Post () {}
 
 Post.prototype = Object.create(null);
 Post.prototype.constructor = Post;
-
-Post.prototype.sayHi = function () {
-  return 'hello from Post! I am an instance method.';
-};
 
 Post.prototype.save = function () {
   return ( _.assign(this, this.prototype.constructor.update()) );
@@ -28,28 +29,26 @@ Post.prototype.save = function () {
 
 Post.create = function (data) {
   return es
-    .create({
-      index: 'freddit',
-      type: 'post',
-      body: data
-    });
+    .create(
+      _.assign(defaults, { body: data })
+    );
 };
 
 Post.find = function () {
   return es
-    .search({
-      index: 'freddit',
-      type: 'post',
-      body: {
-        fields: [
-          '_timestamp',
-          '_source'
-        ],
-        query: {
-          match_all: {}
+    .search(
+      _.assign(defaults, {
+        body: {
+          fields: [
+            '_timestamp',
+            '_source'
+          ],
+          query: {
+            match_all: {}
+          }
         }
-      }
-    })
+      })
+    )
     .then(
       function (data) {
         return _.map(data.hits.hits, function (val) {
@@ -85,8 +84,17 @@ Post.findOne = function (id) {
     );
 };
 
-Post.update = function (req, res, next) {
-  // body...
+Post.update = function (id, data) {
+  return es
+    .update(
+      _.assign(
+        defaults,
+        {
+          id : id,
+          body : { doc : data }
+        }
+      )
+    );
 };
 
 Post.delete = function (req, res, next) {

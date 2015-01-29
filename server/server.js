@@ -4,10 +4,7 @@
 
 var restify = require('restify');
 var elasticsearch = require('elasticsearch');
-
-var ENV = {
-  PORT: 3000
-};
+var CONFIG = require('./config/config.js');
 
 var esClient = new elasticsearch
   .Client({
@@ -41,6 +38,6 @@ server.use(restify.bodyParser({
 
 require('./routes/PostRoutes.js')(server, esClient);
 
-server.listen(ENV.PORT, function() {
+server.listen(CONFIG.SERVER.PORT, function() {
   console.log('%s listening at %s', server.name, server.url);
 });

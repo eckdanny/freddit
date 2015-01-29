@@ -1,6 +1,5 @@
 /* jshint node: true */
 'use strict';
-var _ = require('lodash');
 
 module.exports = function (app, es) {
 
@@ -45,6 +44,21 @@ module.exports = function (app, es) {
           next();
         }, 
         function (err) {
+          next(err);
+        }
+      );
+  });
+
+  // PUT /post/:id
+  app.put('/post/:id', function (req, res, next) {
+    Post
+      .update(req.params.id, req.body)
+      .then(
+        function success (data) {
+          res.send(data);
+          next();
+        },
+        function error (err) {
           next(err);
         }
       );
