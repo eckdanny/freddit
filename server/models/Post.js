@@ -10,16 +10,22 @@ var defaults = {
   type: 'post'
 };
 
-function Post () {
-  _.assign(this, {
-    upvotes: 0,
-    downvotes: 0,
-    title: '',
-    body: '',
-    tags: [],
-    author: {},
-    comments: []
-  });
+var props = {
+  upvotes:    0,    // Integer
+  downvotes:  0,    // Integer
+  title:      '',   // String
+  body:       '',   // String
+  tags:       [],   // String[]
+  author:     {},   // Author
+  comments:   []    // Comment[]
+};
+
+function Post (data) {
+  _.assign(
+    this,
+    props,
+    _.pick(data, _.keys(props))
+  );
 }
 
 //
@@ -38,9 +44,10 @@ Post.prototype.save = function () {
 //
 
 Post.create = function (data) {
+  var myPost = new Post(data);
   return es
     .create(
-      _.assign(defaults, { body: data })
+      _.assign(defaults, { body: myPost })
     );
 };
 
