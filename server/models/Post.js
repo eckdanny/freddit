@@ -10,7 +10,17 @@ var defaults = {
   type: 'post'
 };
 
-function Post () {}
+function Post () {
+  _.assign(this, {
+    upvotes: 0,
+    downvotes: 0,
+    title: '',
+    body: '',
+    tags: [],
+    author: {},
+    comments: []
+  });
+}
 
 //
 // Instance Methods
