@@ -14,6 +14,7 @@
       [
         'ui.router',
         'ui.bootstrap',
+        'angularMoment',
 
         'de.scaffolding',
         'de.environment',

@@ -3,13 +3,13 @@
 	[
 		{
       "folder_exclude_patterns": [
-        "node_modules",
-        "bower_components",
-        ".tmp",
-        ".sass-cache",
-        "dist",
-        "coverage",
-        "complexity",
+        "client/node_modules",
+        "client/bower_components",
+        "client/.tmp",
+        "client/.sass-cache",
+        "client/dist",
+        "client/coverage",
+        "client/complexity",
         ".vagrant"
       ],
 			"follow_symlinks": true,
