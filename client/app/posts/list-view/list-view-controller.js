@@ -6,6 +6,8 @@
 
   function PostListViewController (posts, $state) {
 
+    debugger;
+
     var self = this;
 
     angular.extend(self, {
