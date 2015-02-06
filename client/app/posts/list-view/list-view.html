@@ -7,6 +7,16 @@
           on-click="list.interact"
         ></de:post>
       </div>
+      <pagination
+        total-items="list.pager.status.count"
+        items-per-page="list.pager.status.limit"
+        ng-model="pageNumber"
+        ng-change="list.onPageChange(pageNumber)"
+        class="pagination-sm"
+        boundary-links="true"
+        direction-links="false"
+        max-size="5"
+      ></pagination>
     </div>
     <div class="col-md-4">
       <div ui-view="sidebar"></div>

@@ -21,7 +21,7 @@
     self.onSubmit = function (formData) {
 
       return PostService
-        .create(formData)
+        .post(formData)
         .then(
           function success (res) {
             debugger;

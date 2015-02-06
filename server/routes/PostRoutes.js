@@ -8,9 +8,10 @@ module.exports = function (app, es) {
   // GET /posts
   app.get('/posts', function (req, res, next) {
     Post
-      .find()
+      .find(req.query.query, req.query.limit, req.query.offset)
       .then(
         function success (data) {
+          console.log(data);
           res.send(data);
           next();
         },
@@ -21,7 +22,7 @@ module.exports = function (app, es) {
   });
 
   // GET /post
-  app.get('/post/:id', function (req, res, next) {
+  app.get('/posts/:id', function (req, res, next) {
     Post
       .findOne(req.params.id)
       .then(
@@ -42,7 +43,7 @@ module.exports = function (app, es) {
         function (data) {
           res.send(data);
           next();
-        }, 
+        },
         function (err) {
           next(err);
         }
@@ -50,7 +51,7 @@ module.exports = function (app, es) {
   });
 
   // PUT /post/:id
-  app.put('/post/:id', function (req, res, next) {
+  app.put('/posts/:id', function (req, res, next) {
     Post
       .update(req.params.id, req.body)
       .then(

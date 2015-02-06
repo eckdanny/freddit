@@ -33,10 +33,14 @@
               //     );
               // }
 
-              posts: function (Restangular) {
-                return Restangular
-                  .all('posts')
-                  .getList();
+              // posts: function (Restangular) {
+              //   return Restangular
+              //     .all('posts')
+              //     .getList();
+              // }
+
+              posts: function (PostService) {
+                return PostService.getList();
               }
 
             }

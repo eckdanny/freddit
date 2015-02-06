@@ -16,7 +16,8 @@
         resolve: {
           post: function ($stateParams, PostService) {
             return PostService
-              .one($stateParams.id);
+              .one($stateParams.id)
+              .get();
           }
         }
       });

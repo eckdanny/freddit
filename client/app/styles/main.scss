@@ -58,7 +58,7 @@ $navbar-height:                    30px !default;
 @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities";
 // endbower
 
-.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+a, .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
 
 body {

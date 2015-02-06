@@ -21,20 +21,21 @@ server.use(restify.bodyParser({
   mapParams: true,
   mapFiles: false,
   overrideParams: false,
-  multipartHandler: function(part) {
-      part.on('data', function(data) {
-        /* do something with the multipart data */
-      });
-  },
-  multipartFileHandler: function(part) {
-      part.on('data', function(data) {
-        /* do something with the multipart file data */
-      });
-  },
+  // multipartHandler: function(part) {
+  //     part.on('data', function(data) {
+  //       /* do something with the multipart data */
+  //     });
+  // },
+  // multipartFileHandler: function(part) {
+  //     part.on('data', function(data) {
+  //       /* do something with the multipart file data */
+  //     });
+  // },
   keepExtensions: false,
   // uploadDir: os.tmpdir(),
   multiples: true
 }));
+server.use(restify.queryParser({ mapParams: false }));
 
 require('./routes/PostRoutes.js')(server, esClient);
 

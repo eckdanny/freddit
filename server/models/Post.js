@@ -51,30 +51,58 @@ Post.create = function (data) {
     );
 };
 
-Post.find = function () {
+Post.find = function (query, limit, offset) {
+
+  query   = query   || { "match_all": {} };
+  limit   = limit   || 10;
+  offset  = offset  || 0;
+
   return es
     .search(
       _.assign(defaults, {
         body: {
-          fields: [
-            '_timestamp',
-            '_source'
+          "fields": [
+            "_timestamp",
+            "_source"
           ],
-          query: {
-            match_all: {}
-          }
+          "from": offset,
+          "size": limit,
+          "query": query,
+          "sort": [
+            {
+              "_timestamp": {
+                "order": "desc"
+              }
+            }
+          ]
         }
       })
     )
     .then(
       function (data) {
-        return _.map(data.hits.hits, function (val) {
-          return _.assign(
-            val._source,
-            val.fields,
-            _.pick(val, '_id')
-          );
-        });
+
+        return {
+          results: results(),
+          meta: meta()
+        };
+
+        function results () {
+          return _.map(data.hits.hits, function (val) {
+            return _.assign(
+              val._source,
+              val.fields,
+              _.pick(val, '_id')
+            );
+          });
+        }
+
+        function meta () {
+          return {
+            count: data.hits.total,
+            offset: offset,
+            limit: limit
+          };
+        }
       }
     );
 };
