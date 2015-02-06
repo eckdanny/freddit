@@ -8,7 +8,7 @@ module.exports = function (app, es) {
   // GET /posts
   app.get('/posts', function (req, res, next) {
     Post
-      .find(req.query.query, req.query.limit, req.query.offset)
+      .find(req.query.query, req.query.limit, req.query.offset, req.query.sort)
       .then(
         function success (data) {
           console.log(data);

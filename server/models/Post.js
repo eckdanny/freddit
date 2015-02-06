@@ -51,11 +51,23 @@ Post.create = function (data) {
     );
 };
 
-Post.find = function (query, limit, offset) {
 
-  query   = query   || { "match_all": {} };
-  limit   = limit   || 10;
-  offset  = offset  || 0;
+/**
+ * Find Posts
+ * @param  {Object} [query=MatchAllQueryObject]  Find all matching documents
+ * @param  {Number} [limit=10]  Records per page
+ * @param  {Number} [offset=0]  Pagination offset
+ * @param  {Object} [sort=TimestampSortObject]  Sort by create time
+ * @return {Promise}
+ */
+Post.find = function (query, limit, offset, sort) {
+
+  var args = Array.prototype.slice.call(arguments, 0);
+
+  query   = args[0] || { "match_all": {} };
+  limit   = args[1] || 10;
+  offset  = args[2] || 0;
+  sort    = args[3] || [ { "_timestamp" : { "order" : "desc" } } ];
 
   return es
     .search(
@@ -68,13 +80,7 @@ Post.find = function (query, limit, offset) {
           "from": offset,
           "size": limit,
           "query": query,
-          "sort": [
-            {
-              "_timestamp": {
-                "order": "desc"
-              }
-            }
-          ]
+          "sort": sort
         }
       })
     )
