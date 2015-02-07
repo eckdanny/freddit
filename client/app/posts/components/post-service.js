@@ -5,6 +5,12 @@
     .factory('PostService', PostService)
     .factory('PostPagerService', PostPagerService);
 
+  /**
+   * @todo Assign a unique correlation identifier for each async message from
+   *       the server. Then a paging service can use this later to associate
+   *       page meta with a particular request... Look at `customGet`
+   */
+
   function PostPagerService () {
     var _data;
     return {

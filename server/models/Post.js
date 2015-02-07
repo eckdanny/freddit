@@ -69,6 +69,14 @@ Post.find = function (query, limit, offset, sort) {
   offset  = args[2] || 0;
   sort    = args[3] || [ { "_timestamp" : { "order" : "desc" } } ];
 
+  if (_.isString(query)) {
+    query = JSON.parse(query);
+  }
+
+  if (_.isString(sort)) {
+    sort = JSON.parse(query);
+  }
+
   return es
     .search(
       _.assign(defaults, {

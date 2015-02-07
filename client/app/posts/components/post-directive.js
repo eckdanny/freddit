@@ -15,7 +15,7 @@
         onClick: '&'
       },
       link: function (scope, iElem, iAttrs) {
-        console.log(scope.post);
+        // console.log(scope.post);
       }
     };
   }
