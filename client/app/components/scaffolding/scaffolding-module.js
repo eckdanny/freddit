@@ -19,20 +19,11 @@
             templateUrl: DIR + '/header.html'
           },
           'content@app': {
-            template: 'content'
-        },
+            template: '<div ui-view></div>'
+          },
           'footer@app': {
             templateUrl: DIR + '/footer.html'
         },
-        }
-      })
-
-      .state('app.view.test', {
-        url: '/test',
-        views: {
-          'content@app': {
-            templateUrl: DIR + '/content.html'
-          }
         }
       });
   }

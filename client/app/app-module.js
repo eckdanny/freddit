@@ -17,7 +17,7 @@
         'angularMoment',
 
         'de.scaffolding',
-        'de.environment',
+        'de.pager',
 
         'de.posts',
         'de.about',

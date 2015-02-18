@@ -1,22 +1,50 @@
+<!-- <pre ng-bind="list.pager | json"></pre> -->
 <div class="container">
   <div class="row">
     <div class="col-md-8">
-      <div ng-repeat="post in list.posts">
+      <div ng-if="!list.pager.meta.fromServer">
+        Loading...
+      </div>
+      <div
+        ng-if="!list.posts.length"
+        ng-bind="'Nothing to display here yet...'"
+      ></div>
+      <div
+        ng-if="list.pager.meta.fromServer"
+        ng-repeat="post in list.posts"
+      >
         <de:post
           post="post"
-          on-click="list.interact"
+          on-click="list.goToPostView"
         ></de:post>
       </div>
+
       <pagination
-        total-items="list.pager.status.count"
-        items-per-page="list.pager.status.limit"
-        ng-model="pageNumber"
-        ng-change="list.onPageChange(pageNumber)"
+        total-items="list.pager.meta.count"
+        items-per-page="list.pager.meta.limit"
+        ng-model="list.pager.meta.page"
         class="pagination-sm"
         boundary-links="true"
         direction-links="false"
         max-size="5"
+        first-text="&laquo;"
+        last-text="&raquo;"
       ></pagination>
+
+      <ul
+        class="pagination pagination-sm pull-right"
+      >
+        <li
+          ng-repeat="limit in list.pager.defaults"
+          ng-model="list.pager.meta.limit"
+          btn-radio="limit.value"
+        >
+          <a
+            ng-bind="limit.display"
+          ></a>
+        </li>
+      </ul>
+
     </div>
     <div class="col-md-4">
       <div ui-view="sidebar"></div>

@@ -3,9 +3,7 @@
   angular
     .module('de.posts',
       [
-        'de.environment',
         'restangular',
-
         'de.posts.listView',
         'de.posts.createView',
         'de.posts.postView'

@@ -2,50 +2,18 @@
 
   angular
     .module('de.posts.createView')
-    .controller('PostCreateViewController', PostCreateViewController);
+    .controller('de.posts.createView.CreateViewController', CreateViewController);
 
-  function PostCreateViewController (author, $scope, PostService) {
-
-    var self = this;
-
-    angular.extend(self, {
-      author: author
+  function CreateViewController (author, PostService) {
+    angular.extend(this, {
+      formData: { author: author },
+      PostService: PostService
     });
-
-    angular.extend($scope, {
-      formData: {
-        author: author
-      }
-    });
-
-    self.onSubmit = function (formData) {
-
-      return PostService
-        .post(formData)
-        .then(
-          function success (res) {
-            debugger;
-          },
-          function error (err) {
-            debugger;
-          }
-        );
-
-      // return $http
-      //   .post(
-      //     'http://localhost:8080/posts',
-      //     formData
-      //   )
-      //   .then(
-      //     function success (res) {
-      //       console.log(res);
-      //       return res;
-      //     },
-      //     function error (err) {
-      //       debugger;
-      //     }
-      //   );
-    };
   }
+
+  CreateViewController.prototype.onSubmit = function (formData) {
+    return this.PostService
+      .post(formData);
+  };
 
 })(window, window.angular);
