@@ -6,7 +6,7 @@
     .module('de.posts.listView', ['restangular'])
     .config(listViewConfig);
 
-  function listViewConfig ($stateProvider, RestangularProvider) {
+  function listViewConfig ($stateProvider) {
     $stateProvider
       .state('app.view.posts.list', {
         url: '',
@@ -16,12 +16,20 @@
             controller: 'PostListViewController',
             controllerAs: 'list',
             resolve: {
-              posts: function ($location, PostService) {
+              posts: function ($location, PAGINATION, PostService) {
                 return topicalPostServiceFactory(PostService)
                   .create($location.search().topic)
-                  .getList();
+                  .getList({
+                    limit: $location.search().limit || PAGINATION.DEFAULT_LIMIT.value,
+                    offset: $location.search().offset || 0
+                  })
+                  .then(
+                    _.identity,
+                    function error (err) {
+                      debugger;
+                    }
+                  );
               }
-
             }
           }
         }
@@ -70,11 +78,15 @@
 
     function create (topic) {
 
+      if (!topic) {
+        return PostService;
+      }
+
       if (_registry[topic]) {
         return new _registry[topic](PostService);
       }
 
-      console.warn('topic', topic, 'is not recognized!');
+      console.warn('topic', topic, 'was not recognized! Falling back to defaults.');
 
       return PostService;
     }

@@ -1,41 +1,52 @@
-(function (window, angular, undefined) { 'use strict';
+(function (window, angular, _, undefined) { 'use strict';
 
   angular
     .module('de.posts.listView')
     .controller('PostListViewController', PostListViewController);
 
-  function PostListViewController (posts, $state, PostPagerService, PostService) {
+  function PostListViewController (posts, $scope, $state, $location, $q, $timeout, PostService, PagerFactory) {
 
     var self = this;
 
-    angular.extend(self, {
+    angular.extend(this, {
       posts: posts,
-      pager: PostPagerService
+      goToPostView: goToPostView,
+      pager: PagerFactory.create(posts.meta, $scope, callback)
     });
 
-    self.interact = function (post) {
-      $state.go('app.view.posts.one', {
-        id: post._id
-      });
-    };
-
-    self.search = function (query) {
-      console.log('You searched for ', query);
-    };
-
-    self.onPageChange = function (pageNumber) {
-      var a = (pageNumber - 1) * PostPagerService.status.limit;
-      return PostService
+    function callback (meta) {
+      PostService
         .getList({
-          offset: a,
-          limit: PostPagerService.status.limit
+          limit: meta.limit,
+          offset: meta.offset
         })
-        .then(function success (data) {
-          posts.length = 0;
-          Array.prototype.push.apply(posts, data);
-          return posts;
+        .then(function (posts) {
+          var d = $q.defer();
+          $timeout(function () {
+            d.resolve(posts);
+          }, 1000);
+          return d.promise;
+        })
+        .then(function (posts) {
+
+          // Refresh posts
+          self.posts = posts;
+
+          // Update pager
+          self.pager.meta.set({
+            offset: posts.meta.offset,
+            limit: posts.meta.limit,
+            fromServer: true
+          });
+
+          // Update query string params
+          $location.search(_.pick(self.pager.meta, ['offset', 'limit']));
         });
-    };
+    }
+
+    function goToPostView (post) {
+      $state.go('app.view.posts.one', { id : post._id });
+    }
   }
 
-})(window, window.angular);
+})(window, window.angular, window._);

@@ -13,8 +13,8 @@
         views: {
           '': {
             templateUrl: DIR + '/create-view.html',
-            controller: 'PostCreateViewController',
-            controllerAs: 'post',
+            controller: 'de.posts.createView.CreateViewController',
+            controllerAs: 'createViewVm',
             resolve: {
               author: function () {
                 return {

@@ -4,7 +4,7 @@
 
   <form
     name="postForm"
-    ng-submit="post.onSubmit(formData)"
+    ng-submit="createViewVm.onSubmit(createViewVm.formData)"
     novalidate
   >
 
@@ -18,7 +18,7 @@
         class="form-control"
         id="title"
         name="title"
-        ng-model="formData.title"
+        ng-model="createViewVm.formData.title"
         autofocus
         required
       >
@@ -35,7 +35,7 @@
         class="form-control"
         style="resize: vertical;"
         rows="8"
-        ng-model="formData.body"
+        ng-model="createViewVm.formData.body"
         required
       ></textarea>
     </div>
@@ -71,6 +71,6 @@
 
   </form>
 
-  <pre ng-bind="formData | json"></pre>
+  <pre ng-bind="createViewVm.formData | json"></pre>
 
 </div>

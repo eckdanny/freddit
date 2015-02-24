@@ -5,10 +5,7 @@
     .controller('PostViewController', PostViewController);
 
   function PostViewController (post) {
-
-    var self = this;
-
-    angular.extend(self, {
+    angular.extend(this, {
       post: post
     });
   }

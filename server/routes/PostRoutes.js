@@ -1,6 +1,8 @@
 /* jshint node: true */
 'use strict';
 
+var _ = require('lodash');
+
 module.exports = function (app, es) {
 
   var Post = require('../models/Post.js')(es);
@@ -8,7 +10,12 @@ module.exports = function (app, es) {
   // GET /posts
   app.get('/posts', function (req, res, next) {
     Post
-      .find(req.query.query, req.query.limit, req.query.offset, req.query.sort)
+      .find(
+        req.query.query,
+        _.parseInt(req.query.limit, 10),
+        _.parseInt(req.query.offset, 10),
+        req.query.sort
+      )
       .then(
         function success (data) {
           res.send(data);
